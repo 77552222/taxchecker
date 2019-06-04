@@ -207,6 +207,13 @@ document.querySelector(".input_findelement input").oninput = function ()
 											row.insertCell().innerHTML = description;
 										}																			
 									}
+// выбор версии формы
+document.querySelector(".chosen_versform").oninput = function ()
+								 {
+									document.querySelector(".input_findelement input").oninput();
+									alert("1");																
+								 }	
+	
 																		
 // галка "Показать дополнительную информацию" для проверки xml
 document.querySelectorAll(".extra_info")[0].onchange = function ()
