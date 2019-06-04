@@ -79,23 +79,28 @@ document.addEventListener("DOMContentLoaded", () =>
 																					ul.classList.add("display_none");
 
 																					//Если выбрали отчетность, то заполнить список версФорм
-																					if (div.className.indexOf("chosen_taxdoc") == -1) return;
-																					// получить доступные версФорм для выбранного отчета
-																					var knd = input.value.split("-")[0].trim();
-																					var taxList = loadDOM("TaxDocumentList.xml");
-																					var versForms = Array.from(taxList.querySelectorAll('Документ[КНД="' + knd + '"]')).map(n => parseFloat(n.getAttribute("ВерсФорм")));	
-																					versForms.sort().reverse();
-																					// заполнить список версий форм
-																					var ul_versform = document.querySelector(".chosen_versform ul");
-																					Array.from(ul_versform.children).forEach(n => n.remove());
-																					versForms.forEach(s => 
-																											{
-																												var li = document.createElement("li");
-																												li.textContent = s;
-																												li.onclick = this.onclick;
-																												ul_versform.appendChild(li);
-																											});		
-																					document.querySelector(".chosen_versform a input").value = ul_versform.firstChild.innerHTML;					
+																					if (div.className.indexOf("chosen_taxdoc") != -1) 
+																					{
+																						// получить доступные версФорм для выбранного отчета
+																						var knd = input.value.split("-")[0].trim();
+																						var taxList = loadDOM("TaxDocumentList.xml");
+																						var versForms = Array.from(taxList.querySelectorAll('Документ[КНД="' + knd + '"]')).map(n => parseFloat(n.getAttribute("ВерсФорм")));	
+																						versForms.sort().reverse();
+																						// заполнить список версий форм
+																						var ul_versform = document.querySelector(".chosen_versform ul");
+																						Array.from(ul_versform.children).forEach(n => n.remove());
+																						versForms.forEach(s => 
+																												{
+																													var li = document.createElement("li");
+																													li.textContent = s;
+																													li.onclick = this.onclick;
+																													ul_versform.appendChild(li);
+																												});																					
+																						document.querySelector(".chosen_versform a input").value = ul_versform.firstChild.innerHTML;
+																					}
+																					
+																					// обновить таблицу с результатами
+																					document.querySelector(".input_findelement input").oninput();																															
 																				}																											
 														ul.appendChild(li);
 													});												
@@ -207,12 +212,6 @@ document.querySelector(".input_findelement input").oninput = function ()
 											row.insertCell().innerHTML = description;
 										}																			
 									}
-// выбор версии формы
-document.querySelector(".chosen_versform input").oninput = function ()
-								 {
-									document.querySelector(".input_findelement input").oninput();
-									alert("1");																
-								 }	
 	
 																		
 // галка "Показать дополнительную информацию" для проверки xml
