@@ -104,8 +104,7 @@
 						</xs:appinfo>
 						<!---******************************************************************************************************************************************************************-->
 						<xs:documentation>Титульный лист</xs:documentation>
-						<xs:documentation>Состав и структура документа</xs:documentation>
-						<xs:documentation/>
+						<xs:documentation>Состав и структура документа</xs:documentation>						
 						<xs:documentation>part</xs:documentation>
 					</xs:annotation>
 					<xs:complexType>
