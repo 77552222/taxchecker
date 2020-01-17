@@ -317,7 +317,7 @@
 					{
 						checkResult = false;
 						list = list.slice(0,-1);
-						restrictionText = 'должно быть из списка значений:' + list;
+						restrictionText = 'Должно быть из списка значений:' + list;
 						baseText = ''; // информацию о базовом типе не будем выводить, т.к. и так есть список значений
 					}
 				}
