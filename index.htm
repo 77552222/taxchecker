@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () =>
 							});	
 
 // закрыть все раскрытые списки, если щелкнуть по свободному месту
-document.body.onclick = function (event)
+document.body.onmousedown = function (event)
 {
 	var aux = event.target;
 	while (aux)
