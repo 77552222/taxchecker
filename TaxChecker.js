@@ -335,7 +335,7 @@
 		{
 			required = (xsdNode.getAttribute("use") == "required") ? "обязательное" : "необязательное";		
 		}
-		this._log(this._getDescription(xsdPath, xmlPath) + ". Неверно заполнено " + required + " поле. " + baseText + restrictionText);
+		this._log(this._getDescription(xsdPath, xmlPath) + " = " + xmlValue +". Неверно заполнено " + required + " поле. " + baseText + restrictionText);
 	}
 	
 	
