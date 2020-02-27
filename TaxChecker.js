@@ -301,7 +301,7 @@
 					if (!isOk)
 					{
 						checkResult = false;
-						restrictionText = 'должно быть по определенному шаблону';
+						restrictionText = 'по определенному шаблону';
 					}
 				}
 				if (enumerations.length > 0)
@@ -335,7 +335,7 @@
 		{
 			required = (xsdNode.getAttribute("use") == "required") ? "обязательное" : "необязательное";		
 		}
-		this._log(this._getDescription(xsdPath, xmlPath) + " = \"" + xmlValue +"\". Неверно заполнено " + required + " поле. " + baseText + restrictionText);
+		this._log(this._getDescription(xsdPath, xmlPath) + " = \"" + xmlValue +"\". Неверно заполнено " + required + " поле. Должно быть " + baseText + " " + restrictionText);
 	}
 	
 	
