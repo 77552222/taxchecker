@@ -360,7 +360,7 @@
 															<!-- Контроль  обязательности  присутствия (отсутствия) элемента  РасчСВ_ОПС_ОМС  в  зависимости  от  значения  ТипПлат  -->
 															<sch:assert test="usch:iif(@ТипПлат=1, count(РасчСВ_ОПС_ОМС)!=0, (count(РасчСВ_ОПС_ОМС)!=0 or count(РасчСВ_ОПС_ОМС)=0))">
 																<usch:error code="0400300003" path="РасчСВ_ОПС_ОМС" value-of-select="@ТипПлат">
-																Если строка 001 = "1", то "Расчет сумм страховых взносов на обязательное пенсионное страхование и обязательное медицинское страхование к разделу 1" должен быть заполнен																
+																Если строка 001 = "1", то "Приложение 1" должно присутствовать															
 																</usch:error>
 															</sch:assert>
 														</sch:rule>
@@ -374,7 +374,7 @@
 															<!-- Контроль  обязательности  присутствия (отсутствия) элемента  РасчСВ_ОСС.ВНМ  в  зависимости  от  значения  ТипПлат  -->
 															<sch:assert test="usch:iif(@ТипПлат=1, count(РасчСВ_ОСС.ВНМ)!=0, (count(РасчСВ_ОСС.ВНМ)!=0 or count(РасчСВ_ОСС.ВНМ)=0))">
 																<usch:error code="0400300003" path="РасчСВ_ОСС.ВНМ" value-of-select="@ТипПлат">
-																Если строка 001 = "1", то "Расчет сумм страховых взносов на обязательное социальное страхование на случай временной нетрудоспособности и в связи с материнством к разделу 1" должен быть заполнен
+																Если строка 001 = "1", то "Приложение 2" должно присутствовать
 																</usch:error>
 															</sch:assert>
 														</sch:rule>
@@ -930,8 +930,9 @@
 													</xs:element>
 													<xs:element name="РасчСВ_ОПС_ОМС" minOccurs="0" maxOccurs="unbounded">
 														<xs:annotation>
-															<xs:documentation/>
+															<xs:documentation>Приложение 1</xs:documentation>
 															<xs:documentation>Расчет сумм страховых взносов на обязательное пенсионное страхование и обязательное медицинское страхование к разделу 1</xs:documentation>
+															<xs:documentation>part</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
@@ -939,7 +940,6 @@
 																	<xs:annotation>
 																		<xs:documentation>Подраздел 1.1</xs:documentation>
 																		<xs:documentation>Расчет сумм страховых взносов на обязательное пенсионное страхование</xs:documentation>
-																		<xs:documentation>part</xs:documentation>
 																	</xs:annotation>
 																	<xs:complexType>
 																		<xs:sequence>
@@ -1016,7 +1016,6 @@
 																	<xs:annotation>
 																		<xs:documentation>Подраздел 1.2</xs:documentation>
 																		<xs:documentation>Расчет сумм страховых взносов на обязательное медицинское страхование</xs:documentation>
-																		<xs:documentation>part</xs:documentation>
 																	</xs:annotation>
 																	<xs:complexType>
 																		<xs:sequence>
@@ -1069,7 +1068,6 @@
 																	<xs:annotation>
 																		<xs:documentation>Подраздел 1.3</xs:documentation>
 																		<xs:documentation>Расчет сумм страховых взносов на обязательное пенсионное страхование по дополнительному тарифу для отдельных категорий плательщиков страховых взносов, указанных в статье 428 Налогового кодекса Российской Федерации</xs:documentation>
-																		<xs:documentation>part</xs:documentation>
 																	</xs:annotation>
 																	<xs:complexType>
 																		<xs:sequence>
@@ -1203,7 +1201,6 @@
 																	<xs:annotation>
 																		<xs:documentation>Приложение 1.1</xs:documentation>
 																		<xs:documentation>Расчет сумм страховых взносов на дополнительное социальное обеспечение членов летных экипажей воздушных судов гражданской авиации, а также для отдельных категорий работников организаций угольной промышленности к разделу 1</xs:documentation>
-																		<xs:documentation>part</xs:documentation>
 																	</xs:annotation>
 																	<xs:complexType>
 																		<xs:sequence>
@@ -1281,14 +1278,14 @@
 													</xs:element>
 													<xs:element name="РасчСВ_ОСС.ВНМ" minOccurs="0">
 														<xs:annotation>
-															<xs:documentation/>
+															<xs:documentation>Приложение 2</xs:documentation>
 															<xs:documentation>Расчет сумм страховых взносов на обязательное социальное страхование на случай временной нетрудоспособности и в связи с материнством к разделу 1</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
 																<xs:element name="РасчСВ_ОСС.ВНМКод" maxOccurs="unbounded">
 																	<xs:annotation>
-																		<xs:documentation>Приложение 2</xs:documentation>
+																		<xs:documentation>Раздел1 Приложение 2</xs:documentation>
 																		<xs:documentation>Расчет сумм страховых взносов на обязательное социальное страхование на случай временной нетрудоспособности и в связи с материнством по коду тарифа плательщика</xs:documentation>
 																		<xs:documentation>part</xs:documentation>
 																	</xs:annotation>
@@ -1383,23 +1380,20 @@
 																</xs:element>
 																<xs:element name="ПроизвРасхСО" type="СвСум1Тип">
 																	<xs:annotation>
-																		<xs:documentation>Приложение 2, строка 070</xs:documentation>
+																		<xs:documentation>строка 070</xs:documentation>
 																		<xs:documentation>Произведено расходов на выплату страхового обеспечения</xs:documentation>
-																		<xs:documentation>part</xs:documentation>
 																	</xs:annotation>
 																</xs:element>
 																<xs:element name="ВозмРасхСО" type="СвСум1Тип">
 																	<xs:annotation>
-																		<xs:documentation>Приложение 2, строка 080</xs:documentation>
+																		<xs:documentation>строка 080</xs:documentation>
 																		<xs:documentation>Возмещено ФСС расходов на выплату страхового обеспечения</xs:documentation>
-																		<xs:documentation>part</xs:documentation>
 																	</xs:annotation>
 																</xs:element>
 																<xs:element name="УплСВПрев">
 																	<xs:annotation>
-																		<xs:documentation>Приложение 2, строка 090</xs:documentation>
+																		<xs:documentation>строка 090</xs:documentation>
 																		<xs:documentation>Сумма страховых взносов, подлежащая уплате (сумма превышения произведенных расходов над исчисленными страховыми взносами)</xs:documentation>
-																		<xs:documentation>part</xs:documentation>
 																	</xs:annotation>
 																	<xs:complexType>
 																		<xs:sequence>
@@ -1437,7 +1431,6 @@
 														<xs:annotation>
 															<xs:documentation>Приложение 3</xs:documentation>
 															<xs:documentation>Расходы по обязательному социальному страхованию на случай временной нетрудоспособности и в связи с материнством и расходы, осуществляемые в соответствии с законодательством Российской Федерации к разделу 1</xs:documentation>
-															<xs:documentation>part</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
@@ -1544,7 +1537,6 @@
 														<xs:annotation>
 															<xs:documentation>Приложение 4</xs:documentation>
 															<xs:documentation>Выплаты, произведенные за счет средств, финансируемых из федерального бюджета к разделу 1</xs:documentation>
-															<xs:documentation>part</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
@@ -1818,7 +1810,6 @@
 														<xs:annotation>
 															<xs:documentation>Приложение 5</xs:documentation>
 															<xs:documentation>Расчет соответствия условиям применения пониженного тарифа страховых взносов плательщиками, указанными в подпункте 3 пункта 1 статьи 427 Налогового кодекса Российской Федерации к разделу 1</xs:documentation>
-															<xs:documentation>part</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:choice>
@@ -1973,7 +1964,6 @@
 														<xs:annotation>
 															<xs:documentation>Приложение 6</xs:documentation>
 															<xs:documentation>Расчет соответствия условиям применения пониженного тарифа страховых взносов плательщиками, указанными в подпункте 7 пункта 1 статьи 427 Налогового кодекса Российской Федерации к разделу 1</xs:documentation>
-															<xs:documentation>part</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:attribute name="ДохВсПред" use="optional">
@@ -2104,7 +2094,6 @@
 														<xs:annotation>
 															<xs:documentation>Приложение 7</xs:documentation>
 															<xs:documentation>Расчет соответствия условиям применения пониженного тарифа страховых взносов плательщиками, указанными в подпункте 15 пункта 1 статьи 427 Налогового кодекса Российской Федерации к разделу 1</xs:documentation>
-															<xs:documentation>part</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
@@ -2235,7 +2224,6 @@
 														<xs:annotation>
 															<xs:documentation>Приложение 8</xs:documentation>
 															<xs:documentation>Сведения, необходимые для применения тарифа страховых взносов, установленного абзацем вторым подпункта 2 пункта 2 статьи 425 Налогового кодекса Российской Федерации к разделу 1</xs:documentation>
-															<xs:documentation>part</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
@@ -2301,7 +2289,6 @@
 														<xs:annotation>
 															<xs:documentation>Приложение 9</xs:documentation>
 															<xs:documentation>Сведения, необходимые для применения положений подпункта 1 пункта 3 статьи 422 Налогового кодекса Российской Федерации организациями, осуществляющими выплаты и иные вознаграждения в пользу обучающихся в профессиональных образовательных организациях, образовательных организациях высшего образования по очной форме обучения за деятельность, осуществляемую в студенческом отряде (включенном в федеральный или региональный реестр молодежных и детских объединений, пользующихся государственной поддержкой) по трудовым договорам или по гражданско-правовым договорам, предметом которых являются выполнение работ и (или) оказание услуг к разделу 1</xs:documentation>
-															<xs:documentation>part</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
@@ -2488,7 +2475,7 @@
 													</xs:element>
 													<xs:element name="РасчСВ_КФХ">
 														<xs:annotation>
-															<xs:documentation/>
+															<xs:documentation>Приложения 1</xs:documentation>
 															<xs:documentation>Расчет сумм страховых взносов, подлежащих уплате за главу и членов крестьянского (фермерского) хозяйства к разделу 2</xs:documentation>
 														</xs:annotation>
 														<xs:complexType>
@@ -2509,8 +2496,9 @@
 																			</sch:pattern>
 																		</xs:appinfo>
 																		<!---*************************************************************************************************************************************************************-->
-																		<xs:documentation>Приложение 1</xs:documentation>
+																		<xs:documentation>Раздел 2 Приложение 1</xs:documentation>
 																		<xs:documentation>Сведения о члене крестьянского (фермерского) хозяйства</xs:documentation>
+																		<xs:documentation>part</xs:documentation>
 																	</xs:annotation>
 																	<xs:complexType>
 																		<xs:sequence>
